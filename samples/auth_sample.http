@@ -1,0 +1,26 @@
+@api = http://localhost:8080/api/user
+
+###
+
+POST {{api}}/signup
+Content-Type: application/json
+
+{
+    "username": $1,
+    "password": $2, 
+}
+
+###
+
+###
+
+POST {{api}}/login
+Content-Type: application/json
+
+{
+    "username": $1,
+    "password": $2 
+}
+
+###
+
