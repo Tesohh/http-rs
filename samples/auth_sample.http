@@ -11,7 +11,8 @@ Content-Type: application/json
 }
 
 ###
-
+@grpao = graa
+@gra = grpao
 ###
 
 POST {{api}}/login

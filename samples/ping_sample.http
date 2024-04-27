@@ -1,3 +1,4 @@
 @api = http://localhost:8080/api/user
+@grpao = gra
 
 POST {{api}}/ping
