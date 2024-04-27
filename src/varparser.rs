@@ -15,7 +15,7 @@ pub fn parse_vars(file: &str) -> HashMap<String, String> {
             continue;
         };
 
-        map.insert(lhs.to_owned(), rhs.to_owned());
+        map.insert(lhs.trim().to_owned(), rhs.trim().to_owned());
     }
 
     return map;

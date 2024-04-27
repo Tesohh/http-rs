@@ -19,6 +19,7 @@ fn main() -> anyhow::Result<()> {
     let file = std::fs::read_to_string(args.path)?;
 
     let vars = varparser::parse_vars(&file);
+    dbg!(vars);
     let file = selector::select(file, args.select);
     Ok(())
 }
