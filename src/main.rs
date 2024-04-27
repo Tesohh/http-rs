@@ -2,6 +2,7 @@ pub mod builder;
 pub mod requester;
 pub mod selector;
 pub mod varparser;
+pub mod varreplacer;
 
 use std::path::PathBuf;
 
@@ -14,12 +15,15 @@ struct Args {
     pub select: Option<String>,
 }
 
-fn main() -> anyhow::Result<()> {
+#[tokio::main]
+async fn main() -> anyhow::Result<()> {
     let args = Args::parse();
     let file = std::fs::read_to_string(args.path)?;
+    let client = reqwest::Client::new();
 
     let vars = varparser::parse_vars(&file);
-    dbg!(vars);
-    let file = selector::select(file, args.select);
+    let file = varreplacer::replace_vars(file, &vars);
+    let file = selector::select(file, args.select)?;
+    let req = builder::build(file, vars, client)?;
     Ok(())
 }
