@@ -1,8 +1,9 @@
 - [x] Get a sample file
-- [ ] Divide the file into multiple requests when a ### is found
-- [ ] get from the args which request to run (closest matching one or index)
+- [x] Divide the file into multiple requests when a ### is found
+- [x] get from the args which request to run (closest matching one or index)
+- [ ] ADD TESTS
 - [ ] replace {{}} with var content
-- [ ] trim all other requests away
+- [x] trim all other requests away
 - [ ] build() the request
 - [ ] run() the request
 

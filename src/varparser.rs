@@ -24,3 +24,16 @@ pub fn parse_vars(file: &str) -> HashMap<String, String> {
 
     return map;
 }
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn vars_are_parsed_correctly() {
+        assert_eq!(
+            parse_vars("@a = example.com"),
+            HashMap::from([("a".to_string(), "example.com".to_string())])
+        )
+    }
+}
