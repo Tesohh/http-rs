@@ -1,5 +1,6 @@
 use reqwest::Request;
 
-pub fn run(request: Request) -> anyhow::Result<()> {
+pub async fn run(request: Request, client: reqwest::Client) -> anyhow::Result<()> {
+    let res = client.execute(request).await?;
     Ok(())
 }

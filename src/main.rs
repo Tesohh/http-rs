@@ -24,6 +24,7 @@ async fn main() -> anyhow::Result<()> {
     let vars = varparser::parse_vars(&file);
     let file = varreplacer::replace_vars(file, &vars);
     let file = selector::select(file, args.select)?;
-    let req = builder::build(file, vars, client)?;
-    Ok(())
+    let req = builder::build(file, client)?;
+
+    requester::run(req).await
 }
