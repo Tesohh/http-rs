@@ -1,7 +1,7 @@
 use anyhow::Context;
 use reqwest::{Client, RequestBuilder};
 
-pub fn build(file: String, client: Client) -> anyhow::Result<reqwest::Request> {
+pub fn build(file: String, client: &Client) -> anyhow::Result<reqwest::Request> {
     let first = &file.lines().nth(0).context("first line not found")?;
     let (method, url) = first
         .split_once(" ")
